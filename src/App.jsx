@@ -1,11 +1,15 @@
 import List from './components/List'
 
+import { useState } from 'react';
 
 const App = () => {
+  const [state,setState] = useState('hello world')
+
   return (
     <div className="todo">
       <div className='todo__sidebar'>
         <List 
+          state={state}
           items={[
           {
             icon: (
@@ -28,6 +32,21 @@ const App = () => {
               color: 'blue',
               label: 'Фронтенд'
             }
+        ]} isRemovable={true}
+        />
+
+        <List 
+          items={[
+          {
+            className: 'list__add-btn',
+            icon: (
+              <svg width="11" height="11" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 1V15" stroke="#868686" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 8H15" stroke="#868686" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            ),
+            label: 'Add Folder'
+          }
         ]}/>
         
         {/* <button>Add Folder</button> */}
